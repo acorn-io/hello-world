@@ -14,11 +14,12 @@ jobs:
       - uses: acorn-io/actions-setup@v2
         with:
           acorn-version: "main"
-      - uses: acorn-io/actions-login@v1
+      - uses: acorn-io/actions-login@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          local: true
       - name: Set tag
         run: echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Build and Publish
